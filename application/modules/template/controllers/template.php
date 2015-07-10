@@ -16,7 +16,13 @@ class Template extends MX_Controller {
 		$this->load->view('v_admin_secure_login');
 	}
 
-	public function admin_dashboard() {
-		$this->load->view('v_admin_dashboard');
+	public function admin() {
+		if($this->uri->segment(3) == FALSE) {
+			$data['module'] = $this->uri->segment(2) . '/overview';
+		} else {
+			$data['module'] = $this->uri->segment(2).'/'.$this->uri->segment(3);
+		}
+
+		$this->load->view('v_admin_template', $data);
 	}
 }

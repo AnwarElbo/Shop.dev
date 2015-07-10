@@ -7,7 +7,7 @@ class Dashboard extends MX_Controller {
 		$this->load->model('m_dashboard');
 	}
 
-	public function test() {
-
+	public function overview() {
+		$this->load->view('v_admin_dashboard');
 	}
 }

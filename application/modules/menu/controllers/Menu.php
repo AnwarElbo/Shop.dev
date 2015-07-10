@@ -13,4 +13,11 @@ class Menu extends MX_Controller {
 		$this->load->view('v_head_menu', $data);
 	}
 
+
+	public function admin_menu() {
+		$this->load->model("m_admin_menu");
+		$data['adminMenu'] = $this->m_admin_menu->getAdminMenu();
+		$this->load->view('v_admin_menu');
+	}
+
 }

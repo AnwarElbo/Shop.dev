@@ -42,7 +42,7 @@ $route['default_controller'] = "template";
 $route['404_override'] = '';
 $route['product/(:any)/(:num)'] = 'template/product';
 $route['admin/login'] = "template/admin_secure_login";
-$route['admin/dashboard'] = "template/admin_dashboard";
+$route['admin/(:any)'] = "template/admin/$1/index";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
