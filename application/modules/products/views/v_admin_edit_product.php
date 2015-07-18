@@ -9,9 +9,9 @@
                             Products</div>
                     </div>
                     <ol class="breadcrumb page-breadcrumb pull-right">
-                        <li><i class="fa fa-home"></i>&nbsp;<a href="dashboard.html">Home</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
-                        <li class="hidden"><a href="#">Dashboard</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
-                        <li class="active">Dashboard</li>
+                        <li><i class="fa fa-home"></i>&nbsp;<a href="/admin/dashboard">Home</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+                        <li class="hidden"><a href="#">Products</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+                        <li class="active">Products</li>
                     </ol>
                     <div class="clearfix">
                     </div>
@@ -26,62 +26,85 @@
                                             <div class="panel-heading">
                                                 Edit product</div>
                                             <div class="panel-body pan">
-                                                <form action="#">
+                                                <?php if($_SERVER['REQUEST_METHOD'] == 'POST'): ?>
+                                                    <div class="alert alert-danger">
+                                                        <?php echo validation_errors(); ?>
+                                                    </div>
+                                                <?php endif; ?>
+                                                <form method="POST" >
                                                 <div class="form-body pal">
                                                     <div class="form-group">
-                                                        <input id="inputName" type="text" placeholder="Username" class="form-control"></div>
-                                                    <div class="form-group">
-                                                        <div class="input-icon right">
-                                                            <i class="fa fa-envelope"></i>
-                                                            <input id="inputEmail" type="text" placeholder="Email address" class="form-control"></div>
+                                                        <input name="productName" type="text" placeholder="Product name" value="<?php echo $product[0]->name; ?>" class="form-control">
                                                     </div>
                                                     <div class="form-group">
-                                                        <div class="input-icon right">
-                                                            <i class="fa fa-lock"></i>
-                                                            <input id="inputPassword" type="password" placeholder="Password" class="form-control"></div>
-                                                    </div>
-                                                   <div class="form-group">
-			                                            <?php echo modules::run('CKEditor/get_ckeditor'); ?>
-                                                    </div>
-                                                    <hr>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <input id="inputFirstName" type="text" placeholder="First Name" class="form-control"></div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <input id="inputLastName" type="text" placeholder="Last Name" class="form-control"></div>
-                                                        </div>
+			                                            <?php echo modules::run('CKEditor/get_ckeditor', $product[0]->description); ?>
                                                     </div>
                                                     <div class="form-group">
-                                                        <select class="form-control">
-                                                            <option>Gender</option>
-                                                            <option value="0">Male</option>
-                                                            <option value="1">Female</option>
-                                                            <option value="2">Other</option>
+                                                        <input name="productSeoUrl" type="text" placeholder="Url" value="<?php echo $product[0]->seo_url; ?>" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input name="productPrice" type="text" placeholder="Price" value="<?php echo $product[0]->price; ?>" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <select name="productCategory" class="form-control">
+                                                            <option>Category</option>
+                                                            <?php foreach($categories as $category): ?>
+                                                                <option <?php if($mainCategory[0]->category_id == $category->id): ?>selected="selected"<?php endif; ?> value="<?php echo $category->id; ?>"><?php echo $category->category; ?></option>
+                                                            <?php endforeach; ?>
                                                         </select></div>
                                                     <div class="form-group">
                                                         <div class="checkbox">
-                                                            <label class="">
-                                                                <div class="icheckbox_minimal-grey" style="position: relative;"><input tabindex="5" type="checkbox" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>&nbsp; I want to receive news and special
-                                                                offers</label></div>
-                                                    </div>
-                                                    <div class="form-group mbn">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <div class="icheckbox_minimal-grey" style="position: relative;"><input tabindex="5" type="checkbox" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>&nbsp; I agree with the Terms and Conditions</label></div>
+                                                            <input tabindex="5" name="productDisabled" type="checkbox" style="display: block; margin: 0px;" value="<?php echo $product[0]->disabled; ?>">&nbsp; Disable product
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-actions text-right pal">
                                                     <button type="submit" class="btn btn-primary">
-                                                        Submit</button>
+                                                        Save</button>
                                                 </div>
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                          <!--  <div class="col-lg-3">
+                                <div class="row">
+                                    <div class="panel panel-grey">
+                                            <div class="panel-heading">
+                                                Edit product</div>
+                                            <div class="panel-body pan">
+                                                <form method="POST" >
+                                                <div class="form-body pal">
+                                                    <div class="form-group">
+                                                        <input name="productName" type="text" placeholder="Product name" value="<?php echo $product[0]->name; ?>" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input name="productSeoUrl" type="text" placeholder="Url" value="<?php echo $product[0]->seo_url; ?>" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input name="productPrice" type="text" placeholder="Price" value="<?php echo $product[0]->price; ?>" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <select name="productCategory" class="form-control">
+                                                            <option>Category</option>
+                                                            <?php foreach($categories as $category): ?>
+                                                                <option <?php if($mainCategory[0]->category_id == $category->id): ?>selected="selected"<?php endif; ?> value="<?php echo $category->id; ?>"><?php echo $category->category; ?></option>
+                                                            <?php endforeach; ?>
+                                                        </select></div>
+                                                    <div class="form-group">
+                                                        <div class="checkbox">
+                                                            <input tabindex="5" name="productDisabled" type="checkbox" style="display: block; margin: 0px;" value="<?php echo $product[0]->disabled; ?>">&nbsp; Disable product
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-actions text-right pal">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        Save</button>
+                                                </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>

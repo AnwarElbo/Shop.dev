@@ -15,10 +15,24 @@ class Products extends MX_Controller {
 
 	public function edit() {
 		$this->load->model('m_admin_products');
+		$this->load->library('form_validation');
+		$productId = $this->uri->segment(4,0);
 
-		$data['product'] = $this->m_admin_products->getProductById($this->uri->segment(4,0));
+		if($_SERVER['REQUEST_METHOD'] == 'POST') 
+		{
 
-		$this->load->view('v_admin_edit_product');
+			if($this->form_validation->run('editProduct') == TRUE) 
+			{ 
+				$this->m_admin_products->saveProduct($_POST, $productId);
+				header('Location: /admin/products/');
+			}
+		}
+
+		$data['product'] = $this->m_admin_products->getProductById($productId);
+		$data['categories'] = $this->m_admin_products->getAllCategories();
+		$data['mainCategory'] = $this->m_admin_products->getMainCategory($productId);
+
+		$this->load->view('v_admin_edit_product', $data);
 	}
 
 	// Public functions

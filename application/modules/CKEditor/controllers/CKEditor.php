@@ -7,8 +7,9 @@ class CKEditor extends MX_Controller {
 	}
 
 	// Admin functions 
-	public function get_ckeditor() {
-		$this->load->view('v_admin_ckeditor');
+	public function get_ckeditor($param = "") {
+		$data['value'] = $param;
+		$this->load->view('v_admin_ckeditor', $data);
 		
 	}
 
