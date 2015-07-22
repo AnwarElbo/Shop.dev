@@ -9,7 +9,7 @@ class C_Admin extends CI_Model {
         parent::__construct();
         $this->load->library('session');
         $this->sessionHash = $this->session->userdata('admin_hash');
-        $this->rehashAdminSession();
+        $this->validateAdmin();
 
     } 
 
@@ -36,10 +36,16 @@ class C_Admin extends CI_Model {
     		}
     	}
     	
-    	header('Location: /');
+    	$this->redirectToLogin();
     	return false;
     }
-
+    
+    protected function redirectToLogin() {
+        if($_SERVER['REQUEST_URI'] != '/admin/login') 
+        {
+            header('Location: /admin/login');
+        }
+    }
 
     
 }

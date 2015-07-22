@@ -651,6 +651,7 @@ class CI_Form_validation {
 			// Did the rule test negatively?  If so, grab the error.
 			if ($result === FALSE)
 			{
+				
 				if ( ! isset($this->_error_messages[$rule]))
 				{
 					if (FALSE === ($line = $this->CI->lang->line($rule)))

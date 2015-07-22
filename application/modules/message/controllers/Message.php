@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Message extends MX_Controller {
+class Message extends MY_Controller {
 
 	public function __construct() {
 		parent::__construct();

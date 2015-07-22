@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Template extends MX_Controller {
+class Template extends MY_Controller {
 
 
 	public function index()

@@ -9,6 +9,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-cart">
+                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                    R$ 1234,56
+                </button>
                 <a class="navbar-brand" href="#">Start Bootstrap</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -20,6 +24,17 @@
                         </li>
                     <?php endforeach; ?>
                 </ul>
+                <div id="navbar-cart" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a id="cart-popover" class="btn" data-placement="bottom" data-poload="/cart/cart/get_cart_products" title="Products">
+                                <span class="glyphicon glyphicon-shopping-cart"></span>
+                                
+                            </a>
+
+                        </li>
+                    </ul>
+                </div>
             </div>
             <!-- /.navbar-collapse -->
         </div>

@@ -34,32 +34,32 @@
                                                 <form method="POST" >
                                                 <div class="form-body pal">
                                                     <div class="form-group">
-                                                        <input name="productName" type="text" placeholder="Product name" value="<?php echo $product[0]->name; ?>" class="form-control">
+                                                        <input name="productName" type="text" placeholder="Product name" class="form-control">
                                                     </div>
                                                     <div class="form-group">
-			                                            <?php echo modules::run('CKEditor/get_ckeditor', $product[0]->description); ?>
+			                                            <?php echo modules::run('CKEditor/get_ckeditor'); ?>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input name="productSeoUrl" type="text" placeholder="Url" value="<?php echo $product[0]->seo_url; ?>" class="form-control">
+                                                        <input name="productSeoUrl" type="text" placeholder="Url"  class="form-control">
                                                     </div>
                                                     <div class="form-group">
-                                                        <input name="productPrice" type="text" placeholder="Price" value="<?php echo $product[0]->price; ?>" class="form-control">
+                                                        <input name="productPrice" type="text" placeholder="Price" class="form-control">
                                                     </div>
                                                     <div class="form-group">
                                                         <select name="productCategory" class="form-control">
                                                             <option>Category</option>
                                                             <?php foreach($categories as $category): ?>
-                                                                <option <?php if($mainCategory[0]->category_id == $category->id): ?>selected="selected"<?php endif; ?> value="<?php echo $category->id; ?>"><?php echo $category->category; ?></option>
+                                                                <option value="<?php echo $category->id; ?>"><?php echo $category->category; ?></option>
                                                             <?php endforeach; ?>
                                                         </select></div>
                                                     <div class="form-group">
                                                         <div class="checkbox">
-                                                            <input tabindex="5" name="productDisabled" type="checkbox" style="display: block; margin: 0px;" value="<?php echo $product[0]->disabled; ?>">&nbsp; Disable product
+                                                            <input tabindex="5" name="productDisabled" type="checkbox" style="display: block; margin: 0px;" >&nbsp; Disable product
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-actions text-right pal">
-                                                    <button name="saveProduct" type="submit" class="btn btn-primary">
+                                                    <button type="submit" name="saveProduct" class="btn btn-primary">
                                                         Save</button>
                                                 </div>
                                                 </form>
@@ -67,11 +67,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                    <?php echo modules::run('products/_edit_categories'); ?>
-                                </div> 
+                            <?php echo modules::run('products/_edit_categories'); ?>
                             </div>
                         </div>
                     </div>
+                </div>
                 <!--BEGIN FOOTER-->
                 <div id="footer">
                     <div class="copyright">

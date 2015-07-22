@@ -1,8 +1,9 @@
 <?php
 
-class M_admin_login extends C_Login {
+class M_admin_login extends C_Admin {
 
-
+    private $maxLogin = 5;
+    
     function __construct()
     {
         parent::__construct();

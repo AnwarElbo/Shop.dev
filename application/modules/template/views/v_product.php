@@ -22,17 +22,9 @@
     <?php echo modules::run('menu/menu/head_menu'); ?>
     <!-- Page Content -->
     <div class="container">
-
-            <div class="col-md-9">
-
-                <?php echo modules::run('products/products/get_product_by_url'); ?>
-
-                </div>
-
-            </div>
-
+        <div class="col-md-9">
+            <?php echo modules::run('products/products/get_product_by_url'); ?>
         </div>
-
     </div>
     <!-- /.container -->
 
@@ -51,6 +43,8 @@
 
     </div>
     <!-- /.container -->
+    <script src="<?php echo base_url('assets/js/admin/jquery-1.10.2.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/shopping-cart.js'); ?>"></script>
 	<script src="<?php echo base_url('assets/js/bootstrap.js'); ?>"></script>
 
 </body>

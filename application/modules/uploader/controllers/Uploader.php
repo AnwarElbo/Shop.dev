@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Uploader extends MX_Controller {
+class Uploader extends MY_Controller {
 
 	public function __construct() {
 		parent::__construct();

@@ -38,7 +38,6 @@
 
                 <?php echo modules::run('slider/slider/get_slider'); ?>
                 <?php echo modules::run('catalogue/catalogue/new_products'); ?>
-                </div>
 
             </div>
 
@@ -62,6 +61,8 @@
 
     </div>
     <!-- /.container -->
+    <script src="<?php echo base_url('assets/js/admin/jquery-1.10.2.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/shopping-cart.js'); ?>"></script>
 	<script src="<?php echo base_url('assets/js/bootstrap.js'); ?>"></script>
 
 </body>
