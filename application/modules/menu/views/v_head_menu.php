@@ -29,9 +29,12 @@
                         <li>
                             <a id="cart-popover" class="btn" data-placement="bottom" data-poload="/cart/cart/get_cart_products" title="Products">
                                 <span class="glyphicon glyphicon-shopping-cart"></span>
-                                
                             </a>
-
+                        </li>
+                        <li>
+                            <a href="#" class="btn">
+                                Checkout
+                            </a>
                         </li>
                     </ul>
                 </div>

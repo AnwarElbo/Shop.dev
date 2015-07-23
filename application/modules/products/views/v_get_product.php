@@ -4,11 +4,7 @@
 
             <div class="col-md-2">
                 <p class="lead">Shop Name</p>
-                <div class="list-group">
-                    <a href="#" class="list-group-item active">Category 1</a>
-                    <a href="#" class="list-group-item">Category 2</a>
-                    <a href="#" class="list-group-item">Category 3</a>
-                </div>
+                <?php echo modules::run('category/_show_all_categories'); ?>
             </div>
 
             <div class="col-md-7">
@@ -17,8 +13,6 @@
                     <div class="caption-full">
                         <h4 class="pull-right">$<?php echo $product[0]->price; ?></h4>
                         <h4><a href="#"><?php echo $product[0]->name; ?></a></h4>
-                        <input type="hidden" name="product_id" value="<?php echo $product[0]->id; ?>">
-                        <input type="hidden" name="amount" value="1">
                         <?php echo $product[0]->description; ?>
                     </div>
                     <div class="ratings">
@@ -88,7 +82,11 @@
                 </div>
 -->
             </div>
+            <div class="col-md-3">
+                <input type="hidden" name="product_id" value="<?php echo $product[0]->id; ?>">
+                <input type="hidden" name="amount" value="1">
                 <?php echo modules::run('cart/_get_cart_button'); ?>
+            </div>
         </div>
 
     </div>

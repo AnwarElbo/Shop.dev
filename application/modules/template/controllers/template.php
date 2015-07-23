@@ -12,6 +12,14 @@ class Template extends MY_Controller {
 		$this->load->view('v_product');
 	}
 
+	public function products() {
+		$this->load->view('v_show_products');
+	}
+
+	public function category() {
+		$this->load->view('v_category');
+	}
+
 	public function admin_secure_login() {
 		$this->load->view('v_admin_secure_login');
 	}
@@ -24,5 +32,9 @@ class Template extends MY_Controller {
 		}
 
 		$this->load->view('v_admin_template', $data);
+	}
+
+	public function checkout() {
+		$this->load->view('v_checkout');
 	}
 }

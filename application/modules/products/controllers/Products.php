@@ -70,6 +70,12 @@ class Products extends MY_Controller {
 	}
 
 
+	public function _show_products() {
+		$this->load->model('m_products');
+		$data['showProducts'] = $this->m_products->getOverviewProducts();
+		$this->load->view('v_show_products', $data);
+	}
+
 
 	// Protected functions
 	public function _seo_url_check($str) {

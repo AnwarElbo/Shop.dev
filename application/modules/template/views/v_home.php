@@ -13,7 +13,6 @@
 	<link href="<?php echo base_url('assets/css/bootstrap.css'); ?>" rel="stylesheet" type="text/css">
 	<link href="<?php echo base_url('assets/css/bootstrap-theme.css'); ?>" rel="stylesheet" type="text/css">
 	<link href="<?php echo base_url('assets/css/shop-homepage.css'); ?>" rel="stylesheet" type="text/css">
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
 </head>
 
@@ -27,11 +26,7 @@
 
             <div class="col-md-3">
                 <p class="lead">Shop Name</p>
-                <div class="list-group">
-                    <a href="#" class="list-group-item">Category 1</a>
-                    <a href="#" class="list-group-item">Category 2</a>
-                    <a href="#" class="list-group-item">Category 3</a>
-                </div>
+                <?php echo modules::run('category/_show_all_categories'); ?>
             </div>
 
             <div class="col-md-9">
@@ -61,7 +56,8 @@
 
     </div>
     <!-- /.container -->
-    <script src="<?php echo base_url('assets/js/admin/jquery-1.10.2.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/jquery-2.1.4.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/jquery-ui.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/shopping-cart.js'); ?>"></script>
 	<script src="<?php echo base_url('assets/js/bootstrap.js'); ?>"></script>
 

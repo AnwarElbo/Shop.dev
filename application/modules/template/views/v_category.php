@@ -21,9 +21,21 @@
     <?php echo modules::run('menu/menu/head_menu'); ?>
     <!-- Page Content -->
     <div class="container">
-        <div class="col-md-9">
-            <?php echo modules::run('products/products/get_product_by_url'); ?>
+
+        <div class="row">
+
+            <div class="col-md-3">
+                <p class="lead">Shop Name</p>
+                <?php echo modules::run('category/_show_all_categories'); ?>
+            </div>
+
+            <div class="col-md-9">
+                <?php echo modules::run('category/_show_products_category'); ?>
+
+            </div>
+
         </div>
+
     </div>
     <!-- /.container -->
 

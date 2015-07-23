@@ -9,21 +9,46 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin - login</title>
+    <title>Shop Homepage - Start Bootstrap Template</title>
 	<link href="<?php echo base_url('assets/css/bootstrap.css'); ?>" rel="stylesheet" type="text/css">
 	<link href="<?php echo base_url('assets/css/bootstrap-theme.css'); ?>" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url('assets/css/admin-login.css'); ?>" rel="stylesheet" type="text/css">
+	<link href="<?php echo base_url('assets/css/shop-homepage.css'); ?>" rel="stylesheet" type="text/css">
 
 </head>
 
 <body>
+
+    <?php echo modules::run('menu/menu/head_menu'); ?>
     <!-- Page Content -->
     <div class="container">
-        <?php echo modules::run('login/secure_admin_login'); ?>
+
+        <div class="row">
+
+        	<?php echo modules::run('checkout/'.$this->uri->segment(2, '')); ?>
+
+        </div>
+
     </div>
-    <!-- /.container -->    
+    <!-- /.container -->
+
+    <div class="container">
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
     <script src="<?php echo base_url('assets/js/jquery-2.1.4.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/jquery-ui.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/shopping-cart.js'); ?>"></script>
 	<script src="<?php echo base_url('assets/js/bootstrap.js'); ?>"></script>
 
 </body>

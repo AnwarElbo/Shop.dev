@@ -43,6 +43,10 @@ $route['404_override'] = '';
 $route['product/(:any)/(:num)'] = 'template/product';
 $route['admin/login'] = "template/admin_secure_login";
 $route['admin/(:any)'] = "template/admin/$1/index";
+$route['products'] = "template/products";
+$route['category/(:any)'] = "template/category/$1";
+$route['checkout/(:any)'] = "template/checkout/$1";
+$route['checkout'] = "template/checkout/";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

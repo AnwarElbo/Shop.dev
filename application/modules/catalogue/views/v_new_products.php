@@ -8,7 +8,7 @@
 			   
 			    <div class="col-sm-4 col-lg-4 col-md-4">
 			        <div class="thumbnail">
-			            <img src="http://placehold.it/320x150" alt="">
+			            <img src="https://placeholdit.imgix.net/~text?txtsize=30&txt=320%C3%97150&w=320&h=150" alt="">
 			            <div class="caption">
 			                <h4 class="pull-right">$<?php echo $product->price; ?></h4>
 			                <h4><a href="/product/<?php echo $product->seo_url; ?>/<?php echo $product->id; ?>"><?php echo $product->name; ?></a>

@@ -6,7 +6,7 @@
                 <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
                     <div class="page-header pull-left">
                         <div class="page-title">
-                            Products</div>
+                            Pages</div>
                     </div>
                     <ol class="breadcrumb page-breadcrumb pull-right">
                         <li><i class="fa fa-home"></i>&nbsp;<a href="dashboard.html">Home</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
@@ -23,27 +23,25 @@
                             <div class="col-lg-12">
                                 <div class="row">
                                     <div class="panel panel-blue" style="background:#FFF;">
-                                        <div class="panel-heading">All Products<a class="fa fa-plus pull-right" href="/admin/products/add"></a></div>
+                                        <div class="panel-heading">All pages</div>
                                         <div class="panel-body">
                                             <table class="table table-hover">
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>Product</th>
-                                                        <th>Category</th>
+                                                        <th>Page</th>
                                                         <th></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php $counter = 0;
-                                                          foreach($allProducts as $product):
+                                                          foreach($allPages as $page):
                                                           $counter++; 
                                                     ?>
                                                         <tr>
                                                             <td><?php echo $counter; ?></td>
-                                                            <td><?php echo $product->name; ?></td>
-                                                            <td><?php echo $product->category; ?></td>
-                                                            <td><a href="/admin/products/edit/<?php echo $product->id; ?>">Edit</a></td>
+                                                            <td><?php echo $page->name; ?></td>
+                                                            <td><a href="/admin/pages/edit/<?php echo $page->id; ?>">Edit</a></td>
                                                         </tr>
                                                     <?php endforeach; ?>
                                                 </tbody>
