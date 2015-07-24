@@ -21,7 +21,7 @@ class M_admin_login extends C_Admin {
 			{
 				// If user exists, check if password match
 				if(password_verify($form['adminPassword'], $stmtGetAdmin[0]->password)) {
-					$this->setAdminSession($stmtGetAdmin[0]->id, $form['adminUsername']);
+					$this->setAdminSession($stmtGetAdmin[0]->id);
 					return true;
 				}
 			}
@@ -29,9 +29,9 @@ class M_admin_login extends C_Admin {
 		return false;
     }
 
-    private function setAdminSession($id, $username) {
-    	// Create hash from shuffled username and id
-    	$sessionHash =  password_hash(str_shuffle($username . $id), PASSWORD_BCRYPT);
+    private function setAdminSession($id) {
+    	// Create hash from shuffled time
+    	$sessionHash =  md5(str_shuffle(time()));
 
     	// Update table with session
     	$this->db->query('UPDATE tbl_users SET session_hash = ? WHERE id = ? LIMIT 1', array($sessionHash, $id));

@@ -28,8 +28,7 @@ class C_Admin extends CI_Model {
 
     	if($this->sessionHash != FALSE && $this->sessionHash != "" && $this->sessionHash != NULL) {
 
-    		$stmtValidateAdmin = $this->db->query('SELECT id FROM tbl_users WHERE session_hash = ? LIMIT 1', array($this->sessionHash));
-    		$stmtValidateAdmin = $stmtValidateAdmin->result_object();
+    		$stmtValidateAdmin = $this->db->query('SELECT id FROM tbl_users WHERE session_hash = ? LIMIT 1', array($this->sessionHash))->result_object();
 
     		if(isset($stmtValidateAdmin[0])) {
     			return true;

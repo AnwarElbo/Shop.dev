@@ -175,6 +175,7 @@ if (defined('ENVIRONMENT'))
 	// Name of the "system folder"
 	define('SYSDIR', trim(strrchr(trim(BASEPATH, '/'), '/'), '/'));
 
+	// Path to the modules folder
 
 	// The path to the "application" folder
 	if (is_dir($application_folder))
@@ -190,6 +191,8 @@ if (defined('ENVIRONMENT'))
 
 		define('APPPATH', BASEPATH.$application_folder.'/');
 	}
+
+	define('MODDIR', APPPATH."modules/");
 
 /*
  * --------------------------------------------------------------------

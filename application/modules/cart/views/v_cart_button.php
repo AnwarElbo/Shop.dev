@@ -1,1 +1,1 @@
-            	<a class="btn btn-primary btn-block add-to-cart" target="_blank" href="javascript:void(0)">Add to cart</a>
+            	<a class="btn btn-primary btn-block add-to-cart" href="javascript:void(0)">Add to cart</a>

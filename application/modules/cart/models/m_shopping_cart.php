@@ -1,22 +1,9 @@
 <?php
 
-class M_shopping_cart extends C_Webshop {
-
-	private $cartSession;
-	private $customerSession;
+class M_shopping_cart extends C_Customer {
 
     public function __construct() {
         parent::__construct();
-
-        if($this->session->userdata('cart_session') == FALSE OR $this->session->userdata('cart_session') == "") 
-        {
-        	$this->session->set_userdata('cart_session', md5(time() . mt_rand(0, 1000)));
-        	$this->session->set_userdata('customer_session', "");
-        } elseif($this->session->userdata('customer_session') != FALSE OR $this->session->userdata('customer_session') != "") {
-        	$this->session->set_userdata('cart_session', "");
-        }
-        $this->cartSession = $this->session->userdata('cart_session');
-        $this->customerSession = $this->session->userdata('customer_session');
     }
 
     public function getCartProducts() {
@@ -47,17 +34,6 @@ class M_shopping_cart extends C_Webshop {
 		  					array($productId, $amount, $this->cartSession, $this->getCustomerId()));
     	}
         return;
-    }
-
-    public function getCustomerId() {
-        $stmtGetCustomerId = $this->db->query('SELECT id FROM tbl_customers WHERE customer_session = ? LIMIT 1', array($this->customerSession));
-        $stmtGetCustomerId = $stmtGetCustomerId->result_object();
-        if(!isset($stmtGetCustomerId[0]))
-        {
-            return 0;
-        } else {
-            return $stmtGetCustomerId[0]->id;
-        }
     }
 
    public function getCheckoutCartProducts() {

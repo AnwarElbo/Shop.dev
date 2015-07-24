@@ -37,4 +37,16 @@ class Template extends MY_Controller {
 	public function checkout() {
 		$this->load->view('v_checkout');
 	}
+
+	public function customer_login() {
+		$this->load->view('v_customer_login');
+	}
+
+	public function customer_register() {
+		$this->load->view('v_customer_register');
+	}
+
+	public function customer_activate() {
+		$this->load->view('v_customer_activate');
+	}
 }

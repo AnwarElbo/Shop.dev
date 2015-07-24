@@ -27,15 +27,16 @@
                 <div id="navbar-cart" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a id="cart-popover" class="btn" data-placement="bottom" data-poload="/cart/cart/get_cart_products" title="Products">
+                            <a id="cart-popover" href="/checkout/cart" class="btn" data-placement="bottom" data-poload="/cart/cart/get_cart_products" title="Products">
                                 <span class="glyphicon glyphicon-shopping-cart"></span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="btn">
-                                Checkout
+                            <a href="/checkout/cart" class="btn">
+                                Afrekenen
                             </a>
                         </li>
+                        <?php echo modules::run('menu/_customer_menu'); ?>
                     </ul>
                 </div>
             </div>

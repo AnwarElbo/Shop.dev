@@ -37,16 +37,27 @@
 | in the URL cannot be matched to a valid route.
 |
 */
-
+// Reserved
 $route['default_controller'] = "template";
 $route['404_override'] = '';
-$route['product/(:any)/(:num)'] = 'template/product';
+
+// Admin
 $route['admin/login'] = "template/admin_secure_login";
 $route['admin/(:any)'] = "template/admin/$1/index";
+
+// Products
 $route['products'] = "template/products";
+$route['product/(:any)/(:num)'] = 'template/product';
 $route['category/(:any)'] = "template/category/$1";
+
+// Checkout
 $route['checkout/(:any)'] = "template/checkout/$1";
-$route['checkout'] = "template/checkout/";
+$route['checkout'] = "template/checkout";
+
+// Customer
+$route['customer/login'] = "template/customer_login";
+$route['customer/register'] = "template/customer_register";
+$route['customer/activate/(:any)/(:num)'] = "template/customer_activate";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
